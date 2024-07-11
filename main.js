@@ -8,10 +8,28 @@ const tipsContact = document.querySelectorAll('.tips-contact')
 const enquiry = document.querySelector('.enquiry')
 const mobileNav = document.querySelector('.mobile-nav')
 const clickMob = document.querySelector('.container')
+const bodyContainer = document.querySelector('.body-container')
+const loader = document.querySelector('.pre-loader')
 
 
 
+window.addEventListener('load', ()=> {
+  bodyContainer.classList.remove('hidden')
+  bodyContainer.classList.add('visible')
+  loader.classList.add('hidden')
+})
 
+const links = document.querySelectorAll('a[href^="#"]');
+
+links.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetSection = document.querySelector(this.getAttribute('href'));
+    targetSection.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
 function showForm(actionBTN) {
   
   // Show contact form/modal when CTA button is clicked
