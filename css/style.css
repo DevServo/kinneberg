@@ -957,8 +957,74 @@ footer a:hover {
   }
   
   
+.hidden {
+    visibility: hidden;
+    
+}
 
  
+
+.body-container {
+    opacity: 0.15;
+    transform: translateY(5px);
+    transition: transform 500ms linear, opacity 500ms linear ;
+    
+}
+
+.body-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pre-loader {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the pre-loader */
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 9999;
+}
+
+svg {
+    font-family: "Poetsen One", sans-serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    background-color: rgb(179, 224, 79);
+    width: 100%;
+    height: 100%;
+}
+
+.text-anim {
+    fill: none;
+    stroke: black;
+    stroke-width: 3;
+    animation: textAnimation 1s ease-in-out infinite alternate;
+}
+
+@keyframes textAnimation {
+    0% {
+        fill: none;
+        stroke: black;
+        stroke-width: 3;
+        stroke-dasharray: 0 32%;
+    }
+    50% {
+        fill: none;
+        stroke: black;
+        stroke-width: 3;
+    }
+    80%, 100% {
+        fill: rgba(255, 255, 255, 0);
+        stroke: black;
+        stroke-width: 3;
+        stroke-dasharray: 32% 0;
+    }
+}
+
 
 
 
